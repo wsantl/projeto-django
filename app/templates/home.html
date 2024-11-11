@@ -6,6 +6,22 @@
     <title>Página Inicial</title>
 </head>
 <body>
-    <h1>Página inicial</h1>
+    
+    <h1>Lista de Posts</h1>
+
+    <ul>
+        {% for post in posts %}
+            <li>
+                <strong>{{ post.titulo }}</strong> - {{ post.data_publicacao }}
+                <br>
+                {{ post.conteudo|truncatewords:30 }}
+                <br>
+                <a href="#">Editar</a> | <a href="#">Excluir</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <p><a href="{% url 'criar_post' %}">Criar Novo Post</a></p>
+
 </body>
 </html>
